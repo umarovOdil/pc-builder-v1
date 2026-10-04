@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0b0b12;
+  --color-card: #171726;
+  --color-line: #262640;
+  --color-muted: #9a9ab5;
+
+  --color-neon-green: #00ffc2;
+  --color-neon-pink: #ff2d78;
+  --color-neon-yellow: #ffd83d;
+
+  --shadow-glow-green: 0 0 16px rgb(0 255 194 / 0.35);
+  --shadow-glow-pink: 0 0 16px rgb(255 45 120 / 0.4);
+  --shadow-glow-yellow: 0 0 16px rgb(255 216 61 / 0.4);
+
+  --font-display: "Space Grotesk", sans-serif;
+
+
+  --animate-float-a: float-a 14s ease-in-out infinite;
+  --animate-float-b: float-b 18s ease-in-out infinite;
+  --animate-hue: hue 20s linear infinite;
+
+  @keyframes float-a {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(120px, 80px) scale(1.15); }
+  }
+  @keyframes float-b {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-100px, -60px) scale(1.2); }
+  }
+  @keyframes hue {
+    to { filter: hue-rotate(360deg); }
+  }
+}
+
+:root {
+  --scroll-thumb: rgba(46, 230, 166, 0.25);
+  --scroll-thumb-hover: rgba(46, 230, 166, 0.6);
+  --scroll-thumb-active: #2ee6a6;
+}
+
+/* Chrome, Edge, Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track,
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border-radius: 999px;
+  transition: background 0.2s;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb-hover);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: var(--scroll-thumb-active);
+}
+
+/* Firefox */
+@supports (-moz-appearance: none) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scroll-thumb) transparent;
+  }
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-muted);
+  margin: 0;
+  padding: 0;
+}
