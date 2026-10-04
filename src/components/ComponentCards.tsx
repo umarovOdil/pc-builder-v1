@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-import type { BuildStore, Component } from "../types/index";
+import type { Component } from "../types/index";
 import { colors } from "../constants/constants";
 import { ArrowLeftRight, ImageOff, Plus, Trash } from "lucide-react";
 import { useBuildStore } from "../store/buildStore";
@@ -15,7 +15,7 @@ interface ComponentCardProps {
 
 export default function ComponentCard({ item, onSelect }: ComponentCardProps) {
 
-  const partId: BuildStore['parts'] = useBuildStore((s) => s.parts[item.key]);
+  const partId: string | null = useBuildStore((s) => s.parts[item.key]);
   const removePart = useBuildStore((s) => s.removePart);
 
   const part = useMemo(
